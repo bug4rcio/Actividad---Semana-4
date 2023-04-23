@@ -1,0 +1,77 @@
+/*
+Una empresa de telecomunicaciones canadiense ofrece servicio de callback a un precio
+atractivo. El costo de las llamadas telefónicas depende tanto del lugar de origen de la llamada
+como de la zona geográfica en la que se encuentre el país destino. En la siguiente tabla se
+presenta el costo por 60 segundos para las llamadas originadas en Perú.
+
+(TABLA): S04.s1 - Material.pdf
+
+Realice un programa que le permita calcular e imprimir el costo total de una llamada
+telefónica, considerando tanto la zona como la duración de la llamada.
+*/
+
+package ejercicio.pkg3;
+
+import java.util.Scanner;
+
+public class Ejercicio3 {
+
+    public static void main(String[] args) {
+        
+        int clave;
+        String zona;
+        double duracion, costoMinuto, costoTotal;
+        
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("Ingresar clave de zona geográfica: ");
+        clave = sc.nextInt();
+
+        System.out.println("Ingresar duración de llamada deseada en segundos: ");
+        duracion = sc.nextDouble();
+        
+        switch (clave){
+            case 1:
+                costoMinuto = 0.13;
+                zona = "Estados Unidos"
+            ; break;
+            case 2:
+                costoMinuto = 0.11;
+                zona = "Canadá"
+            ; break;
+            case 5:
+                costoMinuto = 0.22;
+                zona = "América del Sur"
+            ; break;
+            case 6:
+                costoMinuto = 0.19;
+                zona = "América Central"
+            ; break;
+            case 7:
+                costoMinuto = 0.17;
+                zona = "México"
+            ; break;
+            case 9:
+                costoMinuto = 0.17;
+                zona = "Europa"
+            ; break;
+            case 10:
+                costoMinuto = 0.20;
+                zona = "Asia"
+            ; break;
+            case 15:
+                costoMinuto = 0.39;
+                zona = "África"
+            ; break;
+            case 20:
+                costoMinuto = 0.28;
+                zona = "Oceanía"
+            ; break;
+            default: System.out.println("Zona geográfica inválida");
+            return;
+
+        }
+        costoTotal = (costoMinuto*duracion)/60;
+        System.out.println("El costo total de la llamada es: S/" + costoTotal);
+    }
+}
