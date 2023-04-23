@@ -1,0 +1,65 @@
+/*
+Realizar un programa que permita calcular la venta de
+computadoras, de las marcas HP, Toshiba, Samsung, Advance, y
+otros; las 2 primeras marcas tienen un 50% de descuento si es
+que la compra es más de 6; las marcas Samsung y Advance tienen
+un 25% de descuento por la compra más 6 equipos; las otras
+marcas tienen un 10% descuento a partir de 6 equipos.
+*/
+
+package ejercicio.pkg8;
+
+import java.util.Scanner;
+
+public class Ejercicio8 {
+
+    public static void main(String[] args) {
+        
+        String marca;
+        int numeroE;
+        double precioI, precioF, descuento;
+        
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("<Bienvenido a E-Market>");
+        System.out.println("Datazo del día: ¡Hemos lanzado ofertones por la compra de 6 equipos o más en todas las marcas!");
+        System.out.println("\nEste es nuestro catálogo de marcas:\n"
+        + "- HP\n" + "- Toshiba\n" + "- Samsung\n" + "- Advance\n" + "- Otras marcas\n");
+        
+        System.out.println("Selecciona una marca:");
+        marca = sc.nextLine();
+        
+        System.out.println("Precio del equipo:");
+        precioI = sc.nextDouble();
+        
+        System.out.println("¿Cuántos equipos deseas adquirir?:");
+        numeroE = sc.nextInt();
+        
+        descuento = 0;
+        
+        if (numeroE <= 0){
+            System.out.println("Cantidad inválida");
+        } else {
+            if (numeroE >= 6){
+                switch (marca){
+                    case "HP":
+                    case "Toshiba": 
+                        descuento = (precioI * 0.50); break;
+                    case "Samsung":
+                    case "Advance":
+                        descuento = (precioI * 0.25); break;
+                    case "Otras marcas":
+                        descuento = (precioI * 0.10); break;
+                    default: ; break;
+                }
+                precioF = (precioI * numeroE) - (descuento*numeroE);
+                
+            } else {
+                precioF = (precioI * numeroE);
+            }
+            
+            System.out.println("Tienes en el carrito: " + numeroE + " pedidos.");
+            System.out.println("El monto total a pagar es: " + precioF);
+        }
+    }
+}
