@@ -1,0 +1,90 @@
+/*
+Un teatro otorga descuentos según la edad del cliente. Determinar
+la cantidad de dinero que el teatro deja de percibir por cada una
+de las categorías. Tomar en cuenta que los niños menores de 5
+años no pueden entrar al teatro y que existe un precio único en los
+asientos. Los descuentos se hacen tomando en cuenta el siguiente
+cuadro:
+
+(TABLA): S04.s1 - Material.pdf
+
+*/
+
+package ejercicio.pkg7;
+
+import java.util.Scanner;
+
+public class Ejercicio7 {
+
+    public static void main(String[] args) {
+        
+        int edad, categoria;
+        double descuento, precioI, precioF;
+        
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("Ingresar precio de entrada:");
+        precioI = sc.nextDouble();
+        
+        System.out.println("Ingresar edad del cliente:");
+        edad = sc.nextInt();
+        
+        System.out.println("\nEsta es la tabla de categorías por edad:\n"
+        + "Categoría 1: de 5 años a 14.\n" + "Categoría 2: de 15 años a 19.\n"
+        + "Categoría 3: de 20 años a 45.\n" + "Categoría 4: de 46 años a 65.\n"
+        + "Categoría 6: de 66 años en adelante.\n");
+        System.out.println("Ingresar categoría:");
+        categoria = sc.nextInt();
+        
+        descuento = 0;
+        
+        if (edad < 5){
+            System.out.println("<No puede ingresar al teatro>");
+        } else {
+            switch (categoria){
+                case 1: 
+                    if (edad >= 5 && edad <= 14){
+                        descuento = (precioI * 0.35);
+                    }
+                break;
+                
+                case 2:
+                    if (edad >= 15 && edad <= 19){
+                        descuento = (precioI * 0.25);
+                    }
+                break;
+                
+                case 3:
+                    if (edad >= 20 && edad <= 45){
+                        descuento = (precioI * 0.10);
+                    }
+                break;
+                    
+                case 4:
+                    if (edad >= 46 && edad <= 65){
+                        descuento = (precioI * 0.25);
+                    }
+                break;
+                    
+                case 6:
+                    if (edad >= 66){
+                        descuento = (precioI * 0.35);
+                    }
+                break;
+                    
+                default: System.out.println("Categoría inválida"); break;
+            }
+            precioF = (precioI - descuento);
+            
+            System.out.println(""); //Separador
+            System.out.println("La categoría es: " + categoria);
+            System.out.println("El descuento que recibe esta categoría es de: S/" + descuento);
+            System.out.println("El precio inicial de una entrada es: S/" + precioI);
+            System.out.println("El precio final de entrada será: S/" + precioF);
+            System.out.println(""); //Separador
+            System.out.println("Finalmente, el teatro deja de percibir el siguiente monto por entrada en la categoría "
+            + categoria + ": S/" + precioF);
+            
+        }
+    }
+}
