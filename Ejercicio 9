@@ -1,0 +1,37 @@
+/*
+Realizar un programa que permita ingresar por teclado la distancia
+que recorrió un atleta, de acuerdo a la distancia, el atleta será
+clasificado.
+
+(TABLA): S04.s1 - Material.pdf
+
+*/
+package ejercicio.pkg9;
+
+import java.util.Scanner;
+
+public class Ejercicio9 {
+    public static void main(String[] args) {
+        
+        double distancia;
+        
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Ingrese la distancia recorrida por el atleta en metros:");
+        distancia = sc.nextDouble();
+
+        if (distancia >= 100 && distancia < 1500) {
+            System.out.println("La clasificación del atleta es: Distancia corta");
+        } else if (distancia >= 1500 && distancia < 3000) {
+            System.out.println("La clasificación del atleta es: Una milla");
+        } else if (distancia >= 3000 && distancia < 20000) {
+            System.out.println("La clasificación del atleta es: 3000 metros");
+        } else if (distancia >= 20000 && distancia < 40000) {
+            System.out.println("La clasificación del atleta es: Semi Fondo");
+        } else if (distancia >= 40000) {
+            System.out.println("La clasificación del atleta es: Fondista");
+        } else {
+            System.out.println("El atleta se encuentra en bajo nivel");
+        }
+    }
+}
