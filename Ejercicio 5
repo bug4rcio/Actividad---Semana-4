@@ -1,0 +1,48 @@
+/*
+Diseñar un programa que imprima el nombre de un artículo,
+clave, precio original y su precio con descuento. El descuento lo
+hace en base a la clave, si la clave es 1 el descuento es del 0%, si
+la clave es 2 el descuento en del 20% y si la clave es 3
+30% para el resto de claves el descuento es del 1%.
+*/
+
+package ejercicio.pkg5;
+
+import java.util.Scanner;
+
+public class Ejercicio5 {
+
+    public static void main(String[] args) {
+        
+        String nombre;
+        int clave;
+        double precioI, precioF, descuento;
+        
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("Ingresar nombre del producto:");
+        nombre = sc.nextLine();
+        
+        System.out.println("Ingresar clave del producto:");
+        clave = sc.nextInt();
+        
+        System.out.println("Ingresar precio del producto:");
+        precioI = sc.nextDouble();
+        
+        descuento = 0;
+        
+        switch (clave){
+            case 1: break;
+            case 2: descuento = (precioI*0.20); break;
+            case 3: descuento = (precioI*0.30); break;
+            default: descuento = (precioI*0.01); break;
+        }
+        precioF = (precioI - descuento);
+        
+        System.out.println(""); //Separador
+        System.out.println("Producto: " + nombre + " <-> Clave: " + clave);
+        System.out.println("Tiene un descuento de: S/" + descuento);
+        System.out.println("Precio inicial: S/" + precioI);
+        System.out.println("Precio final: S/" + precioF);
+    }
+}
