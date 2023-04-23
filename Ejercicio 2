@@ -1,0 +1,37 @@
+/*
+Realizar un programa que permita representar los días de la semana
+correspondiente a los cuerpos celestes del Sistema solar, de tal forma que
+ingrese el nombre del día y el programa retorne el cuerpo celeste
+correspondiente según la siguiente tabla:
+
+(TABLA): S04.s1 - Material.pdf
+
+*/
+
+package ejercicio.pkg2;
+
+import java.util.Scanner;
+
+public class Ejercicio2 {
+
+    public static void main(String[] args) {
+        
+        String dia;
+        
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("Ingresar día de la semana:");
+        dia = sc.next();
+        
+        switch (dia){
+            case "Lunes": System.out.println("Este día corresponde a la Luna") ;break;
+            case "Martes": System.out.println("Este día corresponde a Marte") ;break;
+            case "Miercoles": System.out.println("Este día corresponde a Mercurio") ;break;
+            case "Jueves": System.out.println("Este día corresponde a Jupiter") ;break;
+            case "Viernes": System.out.println("Este día corresponde a Venus") ;break;
+            case "Sabado": System.out.println("Este día corresponde a Saturno") ;break;
+            case "Domingo": System.out.println("Este día corresponde al Sol") ;break;
+            default: break;
+        }
+    }
+}
