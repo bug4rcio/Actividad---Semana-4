@@ -1,0 +1,80 @@
+/*
+El banco “Pueblo desconocido” ha decidido aumentar el límite
+de crédito de las tarjetas de crédito de sus clientes, para esto
+considera que si su cliente tiene tarjeta tipo 1, el aumento será de
+25 %; si tiene tipo 2, será de 35 %; si tiene tipo 3, de 40 %, y para
+cualquier otro tipo, de 50 %. Si la persona tiene deuda con el banco
+solo se le dará la mitad de incremento de los clientes que no tienen
+deuda para clientes 1 y 2 el resto no tiene incremento. Realice un
+algoritmo para determinar el nuevo límite de crédito que tendrá una
+persona en su tarjeta.
+*/
+
+package ejercicio.pkg6;
+
+import java.util.Scanner;
+
+public class Ejercicio6 {
+
+    public static void main(String[] args) {
+        
+        String cliente;
+        int tipoTarjeta;
+        boolean opcion;
+        double aumento, creditoA, creditoN;
+        
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("Ingresar nombre del cliente:");
+        cliente = sc.nextLine();
+        
+        System.out.println("Ingresar tipo de tarjeta:");
+        tipoTarjeta = sc.nextInt();
+        
+        System.out.println("¿Cuál es su crédito actual?:");
+        creditoA= sc.nextDouble();
+        
+        System.out.println("¿Tiene deuda con el banco?: \n"
+        + "Responda con <true> o <false>");
+        opcion = sc.nextBoolean();
+        
+        switch (tipoTarjeta){
+            case 1:
+                if (opcion == false){
+                    aumento = (creditoA * 0.25);
+                } else {
+                    aumento = (creditoA * 0.125);
+                }
+                break;
+            
+            case 2:
+                if (opcion == false){
+                    aumento = (creditoA * 0.35);
+                } else {
+                    aumento = (creditoA * 0.175);
+                }
+                break;
+                
+            case 3:
+                if (opcion == false){
+                    aumento = (creditoA * 0.40);
+                } else {
+                    aumento = (creditoA * 0);
+                }
+                break;
+                
+            default:
+                if (opcion == false){
+                    aumento = (creditoA * 0.50);
+                } else {
+                    aumento = (creditoA * 0);
+                }
+                break;
+        }
+        creditoN = (creditoA + aumento);
+        
+        System.out.println("El crédito actual de: " + cliente + " es: " + creditoA);
+        System.out.println("Su nuevo crédito será: " + creditoN);
+        
+    }
+}
