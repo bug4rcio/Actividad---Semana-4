@@ -1,0 +1,53 @@
+/*
+Diseñar un programa que simule un cajero automático con su saldo
+inicial de S/. 1000, con el siguiente menú de opciones:
+1. Ingreso de dinero a la cuenta
+2. Retirar dinero de la cuenta
+3. Salir.
+*/
+
+package ejercicio.pkg4;
+
+import java.util.Scanner;
+
+public class Ejercicio4 {
+
+    public static void main(String[] args) {
+        
+        int dni, saldo, deposito, retiro, opciones;
+        
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("Ingresar número de DNI: ");
+        dni = sc.nextInt();
+        System.out.println("Bienvenido: " + dni + "\n");
+        
+        System.out.println("Este es el menú de opciones:\n"
+        + "0: Leer saldo\n" + "1: Depositar\n" + "2: Retirar\n" + "3: Salir");
+        System.out.print("Digita un número: \n");
+        opciones = sc.nextInt();
+        
+        saldo = 1000;
+        
+        switch (opciones){
+            case 0: System.out.println("Tu saldo es de: S/" + saldo);
+            break;
+            
+            case 1: System.out.println("Ingresar monto a depositar: ");
+            deposito = sc.nextInt();
+                System.out.println("Tu nuevo saldo es: S/" + (saldo + deposito));
+            break;
+            
+            case 2: System.out.println("Ingresar monto a retirar: ");
+            retiro = sc.nextInt();
+                System.out.println("Tu nuevo saldo es: S/" + (saldo - retiro));
+            break;
+            
+            case 3: System.out.println("! Vuelve pronto :D !");
+            break;
+            
+            default: System.out.println("Opción inválida");
+            break;
+        }
+    }
+}
